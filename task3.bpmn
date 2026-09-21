@@ -19,7 +19,6 @@
       </bpmn:lane>
       <bpmn:lane id="Lane_System" name="Система">
         <bpmn:flowNodeRef>Task_SelectVehicle</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Task_ArchiveData</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_UpdateMileage</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_RegisterFuel</bpmn:flowNodeRef>
       </bpmn:lane>
@@ -68,7 +67,6 @@
       <bpmn:incoming>Flow_9</bpmn:incoming>
       <bpmn:outgoing>Flow_1fqga63</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:serviceTask id="Task_ArchiveData" name="Архивация данных&#10;о рейсе" />
     <bpmn:endEvent id="EndEvent_1" name="Путевой лист закрыт">
       <bpmn:incoming>Flow_1fqga63</bpmn:incoming>
     </bpmn:endEvent>
@@ -106,32 +104,14 @@
           <dc:Bounds x="155" y="165" width="90" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_CreateRequest_di" bpmnElement="Task_CreateRequest">
+        <dc:Bounds x="260" y="100" width="100" height="80" />
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Task_SelectVehicle_di" bpmnElement="Task_SelectVehicle">
         <dc:Bounds x="260" y="460" width="100" height="80" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Task_IssueWaybill_di" bpmnElement="Task_IssueWaybill">
-        <dc:Bounds x="590" y="100" width="100" height="80" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Task_ReturnVehicle_di" bpmnElement="Task_ReturnVehicle">
-        <dc:Bounds x="880" y="340" width="100" height="80" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="EndEvent_1_di" bpmnElement="EndEvent_1">
-        <dc:Bounds x="1240" y="122" width="36" height="36" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="1223" y="84.5" width="69" height="27" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Task_ArchiveData_di" bpmnElement="Task_ArchiveData">
-        <dc:Bounds x="1190" y="460" width="100" height="80" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Task_UpdateMileage_di" bpmnElement="Task_UpdateMileage">
-        <dc:Bounds x="1020" y="460" width="100" height="80" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Task_RegisterFuel_di" bpmnElement="Task_RegisterFuel">
-        <dc:Bounds x="880" y="460" width="100" height="80" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Task_CompleteTrip_di" bpmnElement="Task_CompleteTrip">
-        <dc:Bounds x="720" y="340" width="100" height="80" />
+      <bpmndi:BPMNShape id="Task_PreTripCheck_di" bpmnElement="Task_PreTripCheck">
+        <dc:Bounds x="370" y="220" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Gateway_CheckOk_di" bpmnElement="Gateway_CheckOk" isMarkerVisible="true">
         <dc:Bounds x="555" y="235" width="50" height="50" />
@@ -139,14 +119,29 @@
           <dc:Bounds x="486" y="223" width="88" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Task_PreTripCheck_di" bpmnElement="Task_PreTripCheck">
-        <dc:Bounds x="370" y="220" width="100" height="80" />
+      <bpmndi:BPMNShape id="Task_IssueWaybill_di" bpmnElement="Task_IssueWaybill">
+        <dc:Bounds x="590" y="100" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_CompleteTrip_di" bpmnElement="Task_CompleteTrip">
+        <dc:Bounds x="720" y="340" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_ReturnVehicle_di" bpmnElement="Task_ReturnVehicle">
+        <dc:Bounds x="880" y="340" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_RegisterFuel_di" bpmnElement="Task_RegisterFuel">
+        <dc:Bounds x="880" y="460" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_UpdateMileage_di" bpmnElement="Task_UpdateMileage">
+        <dc:Bounds x="1020" y="460" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Task_CloseWaybill_di" bpmnElement="Task_CloseWaybill">
         <dc:Bounds x="1020" y="100" width="100" height="80" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Task_CreateRequest_di" bpmnElement="Task_CreateRequest">
-        <dc:Bounds x="260" y="100" width="100" height="80" />
+      <bpmndi:BPMNShape id="EndEvent_1_di" bpmnElement="EndEvent_1">
+        <dc:Bounds x="1240" y="122" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1223" y="84.5" width="69" height="27" />
+        </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_1_di" bpmnElement="Flow_1">
         <di:waypoint x="216" y="140" />
